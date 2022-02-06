@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #prepelita {
+            width: 100%;
+	        min-width: 1050px;
+	        
+	        margin: 0px auto;
+            background-color: blue;
+        }
+        body {	
+	        width: 98%;
+	        margin: 0px auto;
+	        padding: 0;
+	        overflow-y: scroll;
+	        font-size: 20px;
+	        background-image:url("https://image.winudf.com/v2/image/Y29tLlN1cGVyVUEuYXBwMDA0Nl9zY3JlZW5zaG90c183Xzc0MGYwMWUy/screen-7.jpg?fakeurl=1&type=.jpg");
+	        background-repeat: no-repeat;
+	        font-family:Arial, Helvetica, sans-serif;
+            
+        }	
+        
+        #nav{
+	    background-color: #3825a3;
+	    position: relative;
+	    z-index: 1;
+        }
+        #nav_wrapper{
+	    width: 1200px;
+	    margin: 0 auto;
+	    text-align: center;
+        
+        }
+        #nav ul{
+	    list-style-type: none;
+	    padding: 0;
+	    margin: 0;
+        position: center;
+        }
+        #nav ul li{
+	    display: inline-block;
+	    width: 200px;
+	    height: 40px;
+	    background-color:black;
+	    opacity: .8;
+	    line-height:40px;
+	    text-align:center;
+	    font-size:20px;
+        
+        }
+        #nav ul li a{
+	    text-decoration:none;
+	    color:white;
+	    display:block;
+        }
+        #nav ul li a:hover{
+    	background-color:rgb(204, 209, 204);
+        }
+        #nav ul li ul li {
+    	display:none;
+        }
+        #nav ul li:hover ul li {
+    	display:block;
+        }
+        
+        #tabelprint  {
+            margin-left: 10px;
+            border-collapse: collapse;
+            
+            
+        }
+
+        #tabelprint td {
+            background-color: #d6d0ce ;
+            border: 3px solid black; 
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
+
+        #tabelprint tr{
+            text-align: left;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div id="prepelita">
+        <div id="nav">
+				<div id="nav_wrapper">
+				<nav class="NavigationBar">
+					<ul>
+                        {% url 'index' as index_url %}
+						<li><a href="{{ index_url }}">Home</a></li>
+                        {% url 'about' as about_url %}
+						<li><a href="{{ about_url }}">PC Info</a></li>
+                        {% url 'infocollect' as infocollect_url %}
+                        <li><a href="{{ infocollect_url }}">Info Collect</a></li>
+                        {% url 'infoprint' as infoprint_url %}
+                        <li><a href="{{ infoprint_url }}">Info Print</a></li>
+					</ul>
+                </div>
+		</div>
+    </div>
+    
+        <br>
+        <br>
+        <br>
+        <div id="tabelprint">
+            <table>
+                {% for k,v in output %}
+                <tr>
+                    <td style="background-color: #abcff5;"><b>{{ k }}</b></td>
+                    {% for value in v %}
+                    <td style="text-align: center;">{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+   
+</body>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+        overflow-y: hidden;
+        }
+        body {
+            background-image: url("https://image.winudf.com/v2/image/Y29tLlN1cGVyVUEuYXBwMDA0Nl9zY3JlZW5zaG90c183Xzc0MGYwMWUy/screen-7.jpg?fakeurl=1&type=.jpg");
+        }
+        #chenar {
+            position: absolute;
+            width: 400px;
+            height: 37  0px;
+            z-index: 15;
+            top: 50%;
+            left: 50%;
+            margin: -200px 0 0 -150px;
+            border: 1px solid black;
+            background-image: url("https://wallpaper.dog/large/5486500.png");
+            padding: 5px;
+            font-family: 'Arial';
+        }
+    </style>
+</head>
+<body>
+ 
+    <div id="chenar">
+    <h2>Login</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <p>Don't have an account? <a href="{% url 'register' %}"><button type="button">Sign Up</button></a></p>
+        <button type="submit">Login</button>
+    </div>
+</body>
+</form>
+</html>

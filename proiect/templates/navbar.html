@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #prepelita {
+            width: 98%;
+	        min-width: 1050px;
+	        max-width: 1050px;
+	        margin: 0px auto;
+            background-color: blue;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div id="prepelita">
+        <div id="nav">
+				<div id="nav_wrapper">
+				<nav class="NavigationBar">
+					<ul>
+                        
+                        {% url 'index' as index_url %}
+						<li><a href="{{ index_url }}">Home</a></li>
+                        {% url 'about' as about_url %}
+						<li><a href="{{ about_url }}">PC Info</a></li>
+                        {% url 'infocollect' as infocollect_url %}
+                        <li><a href="{{ infocollect_url }}">Info Collect</a></li>
+                        {% url 'infoprint' as infoprint_url %}
+                        <li><a href="{{ infoprint_url }}">Info Print</a></li>
+					</ul>
+                </div>
+		</div>
+    </div>
+        
+</body>
+</html>

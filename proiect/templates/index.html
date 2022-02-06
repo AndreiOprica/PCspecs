@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body {	
+	width: 98%;
+	
+	margin: 0px auto;
+	padding: 0;
+	overflow-y: scroll;
+	font-size: 20px;
+	background-image:url("https://image.winudf.com/v2/image/Y29tLlN1cGVyVUEuYXBwMDA0Nl9zY3JlZW5zaG90c183Xzc0MGYwMWUy/screen-7.jpg?fakeurl=1&type=.jpg");
+	background-repeat: no-repeat;
+    
+	font-family:Arial, Helvetica, sans-serif;
+	
+}	
+        #mainContainer {
+            
+	        min-width: 850px;
+	        max-width: 1050px;
+            min-height: 1000px;
+	        margin: 0px auto;
+            background-image: url("https://wallpaper.dog/large/5486500.png");
+            border: 100px #03681f;
+	        border-radius: 25px;
+	        border-color: #b30000;border: 1px;
+            }
+        #logbutton {
+            background-color: black;
+            position: absolute;
+            top: 250%;
+            left: 950px;
+            
+        }
+        #logbutton a button:hover{
+            color: white;
+        }
+        #logbutton button:hover{
+            background-color: green;
+        }
+        
+
+        #walloftext {
+            padding: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+<div id="mainContainer">
+
+    {% extends 'base.html' %}
+
+    {% block title %}Home{% endblock %}
+
+    {% block content %}
+    <div id="mamaliga">
+    
+    <span style="position:relative; left:20px">
+                        {% if user.is_authenticated %}
+                        {% url 'profile' as profile_url %}
+                        <b><span> <a style="color:black; font-size:large";>Hi, {% if request.path == profile_url%}{{user.username}}{% else %}<a style="color:black; font-size:large">{{user.username}}</a>{% endif %}<a style="color:black; font-size:large">!</a></a></span></b>
+                        {% url 'logout' as logout_url %}
+                        <hr>
+                        <br>
+                        <span id="logbutton"><a style="color:black;"  href="{{ logout_url }}" ><button style="background-color: rgb(12, 12, 161);"><i>Logout</button></i></a></span>
+                        {% else %}
+                        {% url 'login' as login_url %}
+                        <span><a style="color:black" href="{{ login_url }}">Login</a></span>
+                        
+                        {% endif %}
+                    </span>
+    <div id="walloftext">
+        <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWelcome to our website!</h4>
+        <p style="font-size: large;">This website extracts data about your machine's specifications, and also you can add custom data. <br> Once you've created an account, you can view what other users have added about their systems.</p>
+
+    </div>
+    
+    </div>
+{% endblock %}
+</body>
+</div>
+</html>

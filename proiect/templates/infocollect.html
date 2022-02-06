@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+        #prepelita {
+            width: 98%;
+	        min-width: 1050px;
+	        max-width: 1050px;
+	        margin: 0px auto;
+            background-color: blue;
+        }
+        body {	
+	        width: 98%;
+	        margin: 0px auto;
+	        padding: 0;
+	        overflow-y: scroll;
+	        font-size: 20px;
+	        background-image:url("https://image.winudf.com/v2/image/Y29tLlN1cGVyVUEuYXBwMDA0Nl9zY3JlZW5zaG90c183Xzc0MGYwMWUy/screen-7.jpg?fakeurl=1&type=.jpg");
+	        background-repeat: no-repeat;
+	        font-family:Arial, Helvetica, sans-serif;
+            
+        }	
+        #mainContainer {
+	        min-width: 850px;
+	        max-width: 1050px;
+            min-height: 1000px;
+	        margin: 0px auto;
+            background-image: url("https://wallpaper.dog/large/5486500.png");
+            border: 100px #03681f;
+	        border-radius: 25px;
+	        border-color: #b30000;
+            border: 1px;
+            position: relative;
+            bottom: 50px;
+        }
+        #nav{
+	    background-color: #3825a3;
+	    position: relative;
+	    z-index: 1;
+        }
+        #nav_wrapper{
+	    width: 1200px;
+	    margin: 0 auto;
+	    text-align: center;
+        }
+        #nav ul{
+	    list-style-type: none;
+	    padding: 0;
+	    margin: 0;
+        }
+        #nav ul li{
+	    display: inline-block;
+	    width: 200px;
+	    height: 40px;
+	    background-color:black;
+	    opacity: .8;
+	    line-height:40px;
+	    text-align:center;
+	    font-size:20px;
+        }
+        #nav ul li a{
+	    text-decoration:none;
+	    color:white;
+	    display:block;
+        }
+        #nav ul li a:hover{
+    	background-color:rgb(204, 209, 204);
+        }
+        #nav ul li ul li {
+    	display:none;
+        }
+        #nav ul li:hover ul li {
+    	display:block;
+        }
+        
+        #HanzoHasashi {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #formpos {
+            padding: 15px;
+            text-align: left;
+            
+        }
+        #homo tr{
+            text-align: right;   
+        }
+        label { display: inline-block; width: 210px; text-align: left; }
+        </style>
+    </head>
+    <body>
+        <div id="prepelita">
+        <div id="nav">
+				<div id="nav_wrapper">
+				<nav class="NavigationBar">
+					<ul>
+                        {% url 'index' as index_url %}
+						<li><a href="{{ index_url }}">Home</a></li>
+                        {% url 'about' as about_url %}
+						<li><a href="{{ about_url }}">PC Info</a></li>
+                        {% url 'infocollect' as infocollect_url %}
+                        <li><a href="{{ infocollect_url }}">Info Collect</a></li>
+                        {% url 'infoprint' as infoprint_url %}
+                        <li><a href="{{ infoprint_url }}">Info Print</a></li>
+					</ul>
+                </div>
+		</div>
+    </div>
+        <div id="mainContainer">
+            <br>
+            <br>
+        <div id="formpos">
+            <table id="homo">
+                <tr><label for "username">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form1.as_p}}
+                <input type="submit" name="Save data">
+            </form>
+        </label>
+            </tr>
+            </table>
+        </div>
+        </div>
+    </body>
+
+</html>
